@@ -17,7 +17,7 @@ class LectorArchivos{
     }
 }
 
-class RegistroAutomotor{
+class Auto{
     private marca : string;
     private motorNum: number;
     private chasisNum: number;
@@ -47,60 +47,70 @@ class RegistroAutomotor{
         return this.titular;
     }
 }
-
-//funcion para crear un nuevo auto
-function crearAuto(auto: string, arrayAutos: Array<RegistroAutomotor>): void {
-    //transformo el elemento de tipo string en un objeto de tipo Auto
-
-    let propiedadAuto: string[] = auto.split(','); 
-    let marca: string = propiedadAuto[0];
-    let motorNum: number = Number(propiedadAuto[1]);
-    let chasisNum: number = Number(propiedadAuto[2]);
-    let dominio: string = propiedadAuto[3];
-    let titular: string = propiedadAuto[4];
-    let listaAuto: Array<RegistroAutomotor> = arrayAutos;
-    let nuevoAuto : RegistroAutomotor = new RegistroAutomotor(marca,motorNum,chasisNum,dominio,titular);
-
-    //inserto el elemento de tipo Auto en el arreglo recibido
-    arrayAutos.push(nuevoAuto);
-}
+class RegistroAutomotor{
+    private autos:Array<Auto>;
+    constructor(arregloAuto:Array<Auto>){
+        this.autos = arregloAuto;
+    }
+    
+   
 
 
-    function borrarAuto(arregloAuto: Array<RegistroAutomotor>,  position: number): void{    ​
+    public borrarAuto(arregloAuto: Array<Auto>,  position: number): void{    ​
         delete arregloAuto[position];        
         
     }
-    function modificarAuto(arregloAuto: Array<RegistroAutomotor>,  position: number): void {
+    public modificarAuto(arregloAuto: Array<Auto>,  position: number): void {
         //editar un auto en el arreglo
          let marca: string = readlineSync.question("Ingrese la Marca : ");
          let motorNum: number = Number(readlineSync.question("Ingrese el numero de Motor : "));
          let chasisNum: number = Number(readlineSync.question("Ingrese el numero de Chasis : "));
          let dominio: string = readlineSync.question("Ingrese el dominio: ");
          let titular: string = readlineSync.question("Ingrese el titular: ");
-         let listaAutos: Array<RegistroAutomotor> = arregloAuto;
-    ​    arregloAuto[position] = new RegistroAutomotor(marca,motorNum,chasisNum,dominio,titular);
+         let listaAutos: Array<Auto> = arregloAuto;
+    ​     arregloAuto[position] = new Auto(marca,motorNum,chasisNum,dominio,titular);
     }
-    function nuevoAuto(arregloAuto: Array<RegistroAutomotor>): void {
+    public nuevoAuto(arregloAuto: Array<Auto>): void {
         //crear auto nuevo
         let marca: string = readlineSync.question("Ingrese la Marca : ");
         let motorNum: number = Number(readlineSync.question("Ingrese el numero de Motor : "));
         let chasisNum: number = Number(readlineSync.question("Ingrese el numero de Chasis : "));
         let dominio: string = readlineSync.question("Ingrese el dominio: ");
         let titular: string = readlineSync.question("Ingrese el titular: ");
-        let listaAutos: Array<RegistroAutomotor> = arregloAuto;
-    ​    let nuevoAuto: RegistroAutomotor = new RegistroAutomotor(marca,motorNum,chasisNum,dominio,titular);
+        let listaAutos: Array<Auto> = arregloAuto;
+    ​    let nuevoAuto: Auto = new Auto(marca,motorNum,chasisNum,dominio,titular);
         listaAutos.push(nuevoAuto);
     }
+
+}
+ //metodo para crear un nuevo auto
+ function crearAuto(auto: string, arrayAutos: Array<Auto>): void {
+    //transformo el elemento de tipo string en un objeto de tipo Auto
+
+        let propiedadAuto: string[] = auto.split(','); 
+        let marca: string = propiedadAuto[0];
+        let motorNum: number = Number(propiedadAuto[1]);
+        let chasisNum: number = Number(propiedadAuto[2]);
+        let dominio: string = propiedadAuto[3];
+        let titular: string = propiedadAuto[4];
+        let listaAuto: Array<Auto> = arrayAutos;
+        let nuevoAuto : Auto = new Auto(marca,motorNum,chasisNum,dominio,titular);
+
+    //inserto el elemento de tipo Auto en el arreglo recibido
+        arrayAutos.push(nuevoAuto);
+    }
+
 //Inicio de programa
 
 let datosAutos: LectorArchivos = new LectorArchivos('autos.txt');
-let arrayAutos: Array<RegistroAutomotor> = [];
+let arrayAutos: Array<Auto> = [];
 let condicion :boolean = true;
+let nuevoAuto: RegistroAutomotor = new RegistroAutomotor(arrayAutos);
 
 
 for (let i: number = 0; i < datosAutos.getArregloString().length; i++) {
-      //Creo Autos uno por uno leyendo el txt        
-        crearAuto(datosAutos.getArregloString()[i], arrayAutos);
+      //Creo Autos uno por uno leyendo el txt  
+    crearAuto(datosAutos.getArregloString()[i], arrayAutos);
 }  
 console.log("Opciones a ingresar : 1-Ver Autos, 2-Agregar Autos, 3-Modificar Autos, 4-Borrar Autos");
 let opcion = readlineSync.question("Ingrese la opcion deseada: ");
@@ -110,15 +120,15 @@ while(condicion == true) {
                 console.log(arrayAutos);
             }else{
                 if(opcion == 2){
-                    nuevoAuto(arrayAutos);
+                    nuevoAuto.nuevoAuto(arrayAutos);
                 }else{
                     if(opcion==3){
                         let position = readlineSync.question("Ingrese la posicion a modificar: ");
-                        modificarAuto(arrayAutos,position);
+                        nuevoAuto.modificarAuto(arrayAutos,position);
                     }else{
                         if(opcion==4){
                             let position = readlineSync.question("Ingrese la posicion a borrar: ");
-                            borrarAuto(arrayAutos,position);
+                            nuevoAuto.borrarAuto(arrayAutos,position);
                         }else{
                             condicion = false;
                         }
