@@ -115,7 +115,7 @@ for (let i: number = 0; i < datosAutos.getArregloString().length; i++) {
 console.log("Opciones a ingresar : 1-Ver Autos, 2-Agregar Autos, 3-Modificar Autos, 4-Borrar Autos");
 let opcion = readlineSync.question("Ingrese la opcion deseada: ");
 while(condicion == true) {
-    if(opcion >=1 && opcion <=5){
+    if(opcion >=1 && opcion <=4){
             if(opcion == 1){
                 console.log(arrayAutos);
             }else{
