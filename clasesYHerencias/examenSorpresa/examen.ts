@@ -84,23 +84,23 @@ class Vehiculo{
     public aumentoVelocidad():void{
         this.velocidad += 10;
     }
-    public getMarca():void{
-        this.marca;
+    public getMarca():string{
+        return this.marca;
     }
-    public getColor():void{
-        this.color;
+    public getColor():string{
+        return this.color;
     }
-    public getEncendido():void{
-        this.encendido;
+    public getEncendido():boolean{
+        return this.encendido;
     }
-    public getVelocidad():void{
-        this.velocidad;
+    public getVelocidad():number{
+        return this.velocidad;
     }
-    public getRuedas():void{
-        this.ruedas;
+    public getRuedas():number{
+        return this.ruedas;
     }
-    public getRpm(): void{
-        this.rpm;
+    public getRpm(): number{
+        return this.rpm;
     }
     public aumentoRpm():void{
         this.rpm += 100;
@@ -124,8 +124,8 @@ class Motocicleta extends Vehiculo{
     }
 }
 //inicio programa
-let topolino: Vehiculo = new Vehiculo(Fiat,verde,4,4500);
-let motoNueva : Motocicleta = new Motocicleta(Honda,azul,2,15000);
+let topolino: Vehiculo = new Vehiculo('Fiat','verde',4,4500);
+let motoNueva : Motocicleta = new Motocicleta('Honda','azul',2,15000);
 console.log(topolino.getRpm());
 topolino.aumentoRpm();
 topolino.aumentoVelocidad();
