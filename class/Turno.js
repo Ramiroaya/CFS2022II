@@ -1,5 +1,6 @@
 "use strict";
 exports.__esModule = true;
+var readlineSync = require("readline-sync");
 var GestorDeArchivos_1 = require("./GestorDeArchivos");
 var funciones_1 = require("./funciones");
 var funciones_2 = require("./funciones");
@@ -49,4 +50,13 @@ for (var i = 0; i < datosMedico.getArregloString().length; i++) {
 for (var i = 0; i < datosPaciente.getArregloString().length; i++) {
     (0, funciones_2.nuevoPaciente)(datosPaciente.getArregloString()[i], arregloPaciente);
 }
-(0, funciones_1.crearTurno)(arregloTurno, arregloMedico, arregloPaciente);
+while (condicion == true) {
+    var turno = readlineSync.question('Desea cargar un Turno?: si/no:  ');
+    if (turno == 'si') {
+        (0, funciones_1.crearTurno)(arregloTurno, arregloMedico, arregloPaciente);
+    }
+    else {
+        console.log('Gracias por su consulta');
+        condicion = false;
+    }
+}

@@ -67,4 +67,12 @@ for (let i:number=0; i< datosMedico.getArregloString().length; i++) {
 for (let i:number=0; i< datosPaciente.getArregloString().length; i++) {
     nuevoPaciente(datosPaciente.getArregloString()[i], arregloPaciente);
 }
-crearTurno(arregloTurno,arregloMedico,arregloPaciente);
+while (condicion == true){
+    let turno: string = readlineSync.question('Desea cargar un Turno?: si/no:  ');
+    if (turno == 'si') {
+        crearTurno(arregloTurno,arregloMedico,arregloPaciente);
+    }else{
+        console.log('Gracias por su consulta');
+        condicion = false;
+    }
+}
