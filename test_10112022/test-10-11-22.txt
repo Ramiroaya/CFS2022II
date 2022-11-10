@@ -1,0 +1,28 @@
+1- A que se llama Herencia?
+	es la forma de compartir con otras clases metodos y atributos de forma jerarquica.
+
+2- Que es una subclase?
+	la subclase es la clase que hereda de una superclase(padre), clase abstracta o implementa de una interfaz los metodos y atributos para poder usarlos juntos con sus propios atributos y metodos, en que de tener, para que se puedan generar objetos/instancias.
+
+3-Que es un objeto?
+	un objeto es una instancia de una clase, un objeto tien dos partes en su vida, uno cuando es creado mediante "new Clase()" y la otra cuando es usado.
+
+4-Que significa que un atributo sea protegido?
+	significa que ese atributo solo sera visto y/o modificado por las clases que hereden de la superclase que tiene ese atributo protegido, solo compartidos entre clase padre e hijas.
+
+5-Existe la herencia múltiple en Typescript?
+	no existe la herencia mulpiple en Typescript, para eso se usan las Interfaces, que nos permiten que una clase pueda usar varias interfaces en caso de requerirlo, y asi compartir sus atributos y metodos.
+
+6-Definir Poliformismo
+	 El polimorfismo es que podemos usar los metodos heredados de una superclase, clase abstracta o interfaz, y definirlos a conveniencia de la clase hija, mientras respete lo que nos tiene que devolver en cada metodo, si es string, boolean, number, void, despues lo que haga adentro ese metodo es propio de la subclase.  
+
+7-¿Qué es un constructor? Para qué sirve?
+	Un constructor es un metodo especial que tiene cada clase que nos sirve para crear instancias de la misma, mediante el uso de "new Clase()".
+
+8-¿Cómo se crea una clase abstracta?
+	con que tenga un atributo o algun metodo abstracto es suficiente para que la clase sea abstracta, en codigo mediante la palabra reservada abstract + Nombre de la Clase. No se pueden hacer instancias de las clases abstractas, se necesitan heredar asi poder hacer sus instancias.
+9-¿Para que se usa el super?
+	Usamos el metodo super() para invocar al constructor de la clase padre, y asi poder traer a las clases que heredan los atributos y metodos de la superclase, para poder usarlos en las mismas.
+10-¿Qué son las interfaces?
+	Las interfaces son clases especiales, son como contratos en blanco en la programacion orientada a objetos, nos permiten declarar atributos y metodos pero sin definirlos o inicializarlos, se usan en typescript para herencia multiple, y en codigos muy grandes nos permiten ahorrar mucho tiempo y lines de codigo.
+	
