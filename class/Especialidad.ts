@@ -1,4 +1,3 @@
-
 export default class Especialidad {
     private nombre_especialidad: string;
 
@@ -9,4 +8,10 @@ export default class Especialidad {
     public getNombre() : string {
         return this.nombre_especialidad;
     }
+    public setNombre(especialidad : string) {
+        this.nombre_especialidad = especialidad;
+    }
+    /*public borrarNombre(especialidad:Especialidad){
+        delete this.nombre_especialidad;
+    }*/
 }

@@ -10,28 +10,24 @@ export default class Medico {
         this.matricula = matricula;
         this.especialidad = especialidad;
     }
-
-    public getMatricula() : number {
-        return this.matricula;
-    }
-
     public getNombre() : string {
         return this.nombre;
     }
-
-    public setNombre(nuevoNombre: string ) : void {
-        this.nombre = nuevoNombre;
-    }
-
-    
+    public getMatricula() : number {
+        return this.matricula;
+    }    
     public getEspecialidad() : Especialidad {
         return this.especialidad;
     }
-
-    public setEspecialidad(nuevaEspecialidad: Especialidad ) : void {
+    public setNombre(nuevoNombre: string ) : void {
+        this.nombre = nuevoNombre;
+    }
+    public setEspecialidad(nuevaEspecialidad:Especialidad ) : void {
         this.especialidad = nuevaEspecialidad;
     }
-
+    /*public borrarEspecialidad(especialidad: Especialidad) : void {
+        delete this.especialidad;
+    }*/
 
 
 }

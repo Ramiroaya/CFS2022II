@@ -7,6 +7,9 @@ var Especialidad = /** @class */ (function () {
     Especialidad.prototype.getNombre = function () {
         return this.nombre_especialidad;
     };
+    Especialidad.prototype.setNombre = function (especialidad) {
+        this.nombre_especialidad = especialidad;
+    };
     return Especialidad;
 }());
 exports["default"] = Especialidad;
